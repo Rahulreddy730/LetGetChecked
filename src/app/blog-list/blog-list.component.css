@@ -1,0 +1,23 @@
+.card{
+    border: 1px solid rgba(0,0,0, .125);
+    border-radius:4px;
+    margin-top: 15px;
+}
+.card-body {
+    display: flex;
+    padding: 15px;
+}
+.card-title{
+    display: inline-block;
+    padding-left: 30px;
+}
+.card-image{
+    width: 120px;
+    height: 120px;
+}
+
+
+.continue-reading {
+    font-style: italic;
+    color: darkgrey;
+}

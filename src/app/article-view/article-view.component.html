@@ -1,0 +1,36 @@
+<div class="article">
+  <div><img class="image" [src]="article.imageUrl" /></div>
+  <h1 class="title">{{ article.title }}</h1>
+  <div class="info">Published By: {{ article.publishedBy }}</div>
+  <div class="info">Published On {{ article.date | date }}</div>
+  <p [innerHTML]="article.content"></p>
+  <hr class="solid" />
+  <div>
+    <form [formGroup]="requiredForm" novalidate>
+      <div class="form-group purple-border">
+        <label class="center-block">Comment </label>
+        <textarea
+          [(ngModel)]="comment"
+          class="form-control"
+          formControlName="comment"
+          placeholder="Write Comments..."
+          required
+          rows="5"
+        ></textarea>
+      </div>
+      <div
+        *ngIf="
+          requiredForm.controls['comment'].invalid &&
+          requiredForm.controls['comment'].touched
+        "
+        class="alert alert-danger"
+      >
+        Comment is required.
+      </div>
+      <button class="btn btn-primary" (click)="postComments()">Comment</button>
+    </form>
+  </div>
+  <div *ngFor="let comment of postComment">
+    <p>{{ comment }}</p>
+  </div>
+</div>

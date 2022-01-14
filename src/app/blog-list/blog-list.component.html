@@ -1,0 +1,21 @@
+<div *ngFor="let article of articles">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <img class="card-image" [src]="article.imageUrl" />
+      </div>
+      <div class="card-title">
+        <h3>
+          {{ article.title }}
+        </h3>
+        <div class="info">
+          Published By: {{ article.publishedBy }} --- {{ article.date | date }}
+        </div>
+        <p [innerHtml]="article.description"></p>
+        <a routerLink="/{{ article.key }}" class="continue-reading"
+          >Continue reading</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
